@@ -82,8 +82,15 @@ def _extract_docs(body: Any) -> list:
 
 
 def _to_opportunity(doc: dict) -> Opportunity:
-    title = str(doc.get("title") or doc.get("name") or "Senza titolo")
     reference = str(doc.get("reference") or doc.get("identifier") or "")
+    title = str(
+        doc.get("title")
+        or doc.get("label")
+        or doc.get("name")
+        or (str(doc.get("description") or "")[:80])
+        or reference
+        or "Senza titolo"
+    )
     url = str(doc.get("url") or "").strip() or (
         f"{PORTAL_URL}?reference={reference}" if reference else PORTAL_URL
     )

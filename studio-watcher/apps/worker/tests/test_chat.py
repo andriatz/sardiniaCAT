@@ -24,7 +24,7 @@ class _FakeResponse:
 
 
 class _FakeChat:
-    async def complete(self, model: str, messages: list[dict]) -> _FakeResponse:
+    async def complete_async(self, model: str, messages: list[dict]) -> _FakeResponse:
         return _FakeResponse(f"mock-reply[{model}]:{messages[-1]['content']}")
 
 

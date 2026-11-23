@@ -21,7 +21,7 @@ class ChatInput(pydantic.BaseModel):
 @workflows.activity(name="chat-complete", start_to_close_timeout=timedelta(seconds=120))
 async def chat_complete(model: str, messages: list[dict]) -> str:
     client = get_mistral_client()
-    resp = await client.chat.complete(model=model, messages=messages)
+    resp = await client.chat.complete_async(model=model, messages=messages)
     content = resp.choices[0].message.content
     if isinstance(content, str):
         return content

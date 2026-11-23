@@ -37,7 +37,7 @@ Compila `.env`:
 | `OPPORTUNITIES_URL` | pagina pubblica delle opportunità Kode (HTML o JSON, es. board Greenhouse/Lever) |
 | `OPPORTUNITIES_FILTER` | opzionale: tieni solo link il cui URL contiene questa stringa (es. `/job`) |
 | `POLL_MINUTES` | intervallo tra i controlli (default 60) |
-| `RUN_ON_START` | `true` per un controllo immediato all'avvio |
+| `RUN_ON_START` | default `true`: primo controllo immediato all'avvio, poi ogni `POLL_MINUTES` |
 | `STATE_FILE` | file con le opportunità già viste (default `data/seen.json`) |
 | `SMTP_HOST/PORT/USER/PASS`, `MAIL_FROM`, `MAIL_TO` | invio email. Senza `SMTP_HOST` le email sono solo stampate a log (dry-run) |
 

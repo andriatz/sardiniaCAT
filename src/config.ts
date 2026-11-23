@@ -11,7 +11,7 @@ export const config = {
   opportunitiesUrl: process.env.OPPORTUNITIES_URL ?? "",
   opportunitiesFilter: process.env.OPPORTUNITIES_FILTER ?? "",
   pollMinutes: Number(process.env.POLL_MINUTES ?? 60),
-  runOnStart: (process.env.RUN_ON_START ?? "false") === "true",
+  runOnStart: (process.env.RUN_ON_START ?? "true") === "true",
   stateFile: process.env.STATE_FILE ?? "data/seen.json",
   smtp: {
     host: process.env.SMTP_HOST ?? "",

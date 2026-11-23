@@ -15,7 +15,7 @@ function getTransporter(): Transporter | null {
   return transporter;
 }
 
-export async function sendOpportunityMail(o: Opportunity): Promise<void> {
+export async function sendOpportunityMail(o: Opportunity): Promise<boolean> {
   const subject = `Nuova opportunita Kode: ${o.title}`;
   const text = `${o.title}\n${o.url}\n`;
   const t = getTransporter();
@@ -23,11 +23,12 @@ export async function sendOpportunityMail(o: Opportunity): Promise<void> {
     console.log(
       `[dry-run] SMTP non configurato, email non inviata. A: ${config.mailTo || "(MAIL_TO non impostato)"} | Oggetto: ${subject} | ${text}`,
     );
-    return;
+    return false;
   }
   if (!config.mailTo || !config.mailFrom) {
     throw new Error("MAIL_TO e MAIL_FROM sono richiesti per inviare email");
   }
   await t.sendMail({ from: config.mailFrom, to: config.mailTo, subject, text });
   console.log(`Email inviata a ${config.mailTo}: ${subject}`);
+  return true;
 }

@@ -39,7 +39,7 @@ Compila `.env`:
 | `POLL_MINUTES` | intervallo tra i controlli (default 60) |
 | `RUN_ON_START` | default `true`: primo controllo immediato all'avvio, poi ogni `POLL_MINUTES` |
 | `STATE_FILE` | file con le opportunità già viste (default `data/seen.json`) |
-| `SMTP_HOST/PORT/USER/PASS`, `MAIL_FROM`, `MAIL_TO` | invio email. Senza `SMTP_HOST` le email sono solo stampate a log (dry-run) |
+| `SMTP_HOST/PORT/USER/PASS`, `MAIL_FROM`, `MAIL_TO` | invio email. Senza `SMTP_HOST` le email sono solo stampate a log (dry-run) e **non** vengono marcate come viste: configurando SMTP in seguito partono davvero |
 
 ## Esecuzione locale
 
